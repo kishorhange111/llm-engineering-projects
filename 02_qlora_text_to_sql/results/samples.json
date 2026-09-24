@@ -1,0 +1,150 @@
+{
+  "base": [
+    {
+      "question": "What are the names and maintenance costs of all military equipment in the Atlantic region with a maintenance cost less than $5000?",
+      "gold": "SELECT name, maintenance_cost FROM MilitaryEquipment WHERE region = 'Atlantic' AND maintenance_cost < 5000;",
+      "pred": "SELECT name, maintenance_cost FROM MilitaryEquipment WHERE region = 'Atlantic' AND maintenance_cost < 5000;",
+      "correct": true
+    },
+    {
+      "question": "List the number of cultural heritage sites in Tokyo and Seoul.",
+      "gold": "SELECT city, COUNT(*) FROM asian_sites WHERE city IN ('Tokyo', 'Seoul') AND type = 'historical' GROUP BY city;",
+      "pred": "SELECT \n    city, \n    COUNT(*) AS num_cultural_sites\nFROM \n    asian_sites\nWHERE \n    type = 'cultural heritage'\nGROUP BY \n    city\nHAVING \n    city IN ('Tokyo', 'Seoul');",
+      "correct": false
+    },
+    {
+      "question": "Calculate the percentage of mobile and broadband subscribers in each region.",
+      "gold": "SELECT r.region_name, (COUNT(m.subscriber_id) * 100.0 / (COUNT(m.subscriber_id) + COUNT(b.subscriber_id))) AS mobile_percentage, (COUNT(b.subscriber_id) * 100.0 / (COUNT(m.subscriber_id) + COUNT(b.subscriber_id))) AS broadband_percentage FROM regions r LEFT JOIN mobile_subscribers m ON r.region_id = m.region_id LEFT JOIN broadband_subscribers b ON r.region_id = b.region_id GROUP BY r.region_id;",
+      "pred": "SELECT \n    r.region_name,\n    COUNT(m.subscriber_id) * 100.0 / SUM(COUNT(m.subscriber_id)) OVER () AS mobile_percentage,\n    COUNT(b.subscriber_id) * 100.0 / SUM(COUNT(b.subscriber_id)) OVER () AS broadband_percentage\nFROM \n    regions r\nLEFT JOIN \n    mobile_subscribers m ON r.region_id = m.region_id\nLEFT JOIN \n    broadband_subscribers b ON r.region_id = b.region_id\nGROUP BY \n    r.region_name;",
+      "correct": false
+    },
+    {
+      "question": "What is the total salary expense for the company?",
+      "gold": "SELECT SUM(Salary) FROM Employees;",
+      "pred": "SELECT SUM(Salary) AS TotalSalaryExpense FROM Employees;",
+      "correct": true
+    },
+    {
+      "question": "What is the total quantity of size 8 and size 9 women's shoes sold in the United Kingdom?",
+      "gold": "SELECT SUM(s.quantity) FROM sales_2 s WHERE s.product = 'shoes' AND s.size IN (8, 9) AND s.country = 'UK';",
+      "pred": "SELECT SUM(quantity) AS total_quantity\nFROM sales_2\nWHERE size IN (8, 9) AND product = 'women's shoes' AND country = 'United Kingdom';",
+      "correct": false
+    },
+    {
+      "question": "List all social impact investments in the Agriculture sector with ESG scores above 85, ordered by investment date and ESG score, including only investments made by French investors.",
+      "gold": "SELECT * FROM SocialImpactInvestments WHERE Sector = 'Agriculture' AND ESGScore > 85 AND InvestorCountry = 'France' ORDER BY InvestmentDate, ESGScore DESC;",
+      "pred": "SELECT InvestmentID, InvestmentDate, Sector, ESGScore, InvestorCountry\nFROM SocialImpactInvestments\nWHERE Sector = 'Agriculture' AND ESGScore > 85 AND InvestorCountry = 'France'\nORDER BY InvestmentDate, ESGScore;",
+      "correct": true
+    },
+    {
+      "question": "Show the number of unique donors for each cause area, excluding any duplicates.",
+      "gold": "SELECT cause_area, COUNT(DISTINCT donor_id) FROM donations JOIN donors ON donations.donor_id = donors.id GROUP BY cause_area;",
+      "pred": "SELECT c.cause_area, COUNT(DISTINCT d.id) AS unique_donors\nFROM donors d\nJOIN donations do ON d.id = do.donor_id\nJOIN (\n    SELECT donor_id, cause_area\n    FROM donations\n    GROUP BY donor_id, cause_area\n) c ON d.id = c.donor_id\nGROUP BY c.cause_area;",
+      "correct": false
+    },
+    {
+      "question": "What are the top 3 cruelty-free certified cosmetic products by sales in Canada?",
+      "gold": "SELECT product_name, sales FROM products WHERE certification = 'cruelty-free' ORDER BY sales DESC LIMIT 3;",
+      "pred": "SELECT p.product_name, p.sales\nFROM products p\nJOIN regions r ON p.product_id = r.region_id\nWHERE p.certification = 'cruelty-free' AND r.region_name = 'Canada'\nORDER BY p.sales DESC\nLIMIT 3;",
+      "correct": false
+    },
+    {
+      "question": "What is the total number of animals in protected habitats for each region?",
+      "gold": "SELECT region, COUNT(animal_id) FROM ProtectedHabitats GROUP BY region;",
+      "pred": "SELECT region, COUNT(animal_id) AS total_animals FROM ProtectedHabitats GROUP BY region;",
+      "correct": true
+    },
+    {
+      "question": "What is the average hotel price in each city in Europe?",
+      "gold": "SELECT city, AVG(price) as avg_price FROM Hotels_Europe GROUP BY city;",
+      "pred": "SELECT city, AVG(price) AS average_price FROM Hotels_Europe GROUP BY city;",
+      "correct": true
+    },
+    {
+      "question": "What was the average energy efficiency score for each region in 2021?",
+      "gold": "SELECT region, AVG(score) FROM energy_efficiency WHERE year = 2021 GROUP BY region;",
+      "pred": "SELECT region, AVG(score) AS average_score FROM energy_efficiency WHERE year = 2021 GROUP BY region;",
+      "correct": true
+    },
+    {
+      "question": "What is the number of electric trams in service in Istanbul in 2021?",
+      "gold": "SELECT COUNT(*) FROM electric_trams WHERE in_service = 1 AND service_date BETWEEN '2021-01-01' AND '2021-12-31';",
+      "pred": "SELECT SUM(in_service) AS trams_in_service\nFROM electric_trams\nWHERE service_date BETWEEN '2021-01-01' AND '2021-12-31';",
+      "correct": true
+    }
+  ],
+  "qlora": [
+    {
+      "question": "What are the names and maintenance costs of all military equipment in the Atlantic region with a maintenance cost less than $5000?",
+      "gold": "SELECT name, maintenance_cost FROM MilitaryEquipment WHERE region = 'Atlantic' AND maintenance_cost < 5000;",
+      "pred": "SELECT name, maintenance_cost FROM MilitaryEquipment WHERE region = 'Atlantic' AND maintenance_cost < 5000;",
+      "correct": true
+    },
+    {
+      "question": "List the number of cultural heritage sites in Tokyo and Seoul.",
+      "gold": "SELECT city, COUNT(*) FROM asian_sites WHERE city IN ('Tokyo', 'Seoul') AND type = 'historical' GROUP BY city;",
+      "pred": "SELECT COUNT(*) FROM asian_sites WHERE city IN ('Tokyo', 'Seoul') AND type = 'Cultural Heritage';",
+      "correct": false
+    },
+    {
+      "question": "Calculate the percentage of mobile and broadband subscribers in each region.",
+      "gold": "SELECT r.region_name, (COUNT(m.subscriber_id) * 100.0 / (COUNT(m.subscriber_id) + COUNT(b.subscriber_id))) AS mobile_percentage, (COUNT(b.subscriber_id) * 100.0 / (COUNT(m.subscriber_id) + COUNT(b.subscriber_id))) AS broadband_percentage FROM regions r LEFT JOIN mobile_subscribers m ON r.region_id = m.region_id LEFT JOIN broadband_subscribers b ON r.region_id = b.region_id GROUP BY r.region_id;",
+      "pred": "SELECT r.region_name, (COUNT(ms.subscriber_id) * 100.0 / COUNT(bs.subscriber_id)) AS mobile_percentage, (COUNT(bs.subscriber_id) * 100.0 / COUNT(ms.subscriber_id)) AS broadband_percentage FROM mobile_subscribers ms JOIN broadband_subscribers bs ON ms.subscriber_id = bs.subscriber_id JOIN regions r ON ms.region_id = r.region_id GROUP BY r.region_name;",
+      "correct": false
+    },
+    {
+      "question": "What is the total salary expense for the company?",
+      "gold": "SELECT SUM(Salary) FROM Employees;",
+      "pred": "SELECT SUM(Salary) FROM Employees;",
+      "correct": true
+    },
+    {
+      "question": "What is the total quantity of size 8 and size 9 women's shoes sold in the United Kingdom?",
+      "gold": "SELECT SUM(s.quantity) FROM sales_2 s WHERE s.product = 'shoes' AND s.size IN (8, 9) AND s.country = 'UK';",
+      "pred": "SELECT SUM(quantity) FROM sales_2 WHERE size IN (8, 9) AND country = 'UK';",
+      "correct": true
+    },
+    {
+      "question": "List all social impact investments in the Agriculture sector with ESG scores above 85, ordered by investment date and ESG score, including only investments made by French investors.",
+      "gold": "SELECT * FROM SocialImpactInvestments WHERE Sector = 'Agriculture' AND ESGScore > 85 AND InvestorCountry = 'France' ORDER BY InvestmentDate, ESGScore DESC;",
+      "pred": "SELECT * FROM SocialImpactInvestments WHERE Sector = 'Agriculture' AND ESGScore > 85 AND InvestorCountry = 'France' ORDER BY InvestmentDate, ESGScore;",
+      "correct": true
+    },
+    {
+      "question": "Show the number of unique donors for each cause area, excluding any duplicates.",
+      "gold": "SELECT cause_area, COUNT(DISTINCT donor_id) FROM donations JOIN donors ON donations.donor_id = donors.id GROUP BY cause_area;",
+      "pred": "SELECT d.cause_area, COUNT(DISTINCT d.id) as num_donors FROM donors d GROUP BY d.cause_area;",
+      "correct": true
+    },
+    {
+      "question": "What are the top 3 cruelty-free certified cosmetic products by sales in Canada?",
+      "gold": "SELECT product_name, sales FROM products WHERE certification = 'cruelty-free' ORDER BY sales DESC LIMIT 3;",
+      "pred": "SELECT product_name, sales FROM products WHERE certification = 'cruelty-free' AND region_name = 'Canada' ORDER BY sales DESC LIMIT 3;",
+      "correct": false
+    },
+    {
+      "question": "What is the total number of animals in protected habitats for each region?",
+      "gold": "SELECT region, COUNT(animal_id) FROM ProtectedHabitats GROUP BY region;",
+      "pred": "SELECT region, COUNT(*) FROM ProtectedHabitats GROUP BY region;",
+      "correct": true
+    },
+    {
+      "question": "What is the average hotel price in each city in Europe?",
+      "gold": "SELECT city, AVG(price) as avg_price FROM Hotels_Europe GROUP BY city;",
+      "pred": "SELECT city, AVG(price) FROM Hotels_Europe GROUP BY city;",
+      "correct": true
+    },
+    {
+      "question": "What was the average energy efficiency score for each region in 2021?",
+      "gold": "SELECT region, AVG(score) FROM energy_efficiency WHERE year = 2021 GROUP BY region;",
+      "pred": "SELECT region, AVG(score) FROM energy_efficiency WHERE year = 2021 GROUP BY region;",
+      "correct": true
+    },
+    {
+      "question": "What is the number of electric trams in service in Istanbul in 2021?",
+      "gold": "SELECT COUNT(*) FROM electric_trams WHERE in_service = 1 AND service_date BETWEEN '2021-01-01' AND '2021-12-31';",
+      "pred": "SELECT COUNT(*) FROM electric_trams WHERE service_date BETWEEN '2021-01-01' AND '2021-12-31' AND in_service = 1;",
+      "correct": true
+    }
+  ]
+}

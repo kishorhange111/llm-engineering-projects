@@ -1,0 +1,24 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "train_examples": 12000,
+  "test_examples": 500,
+  "trainable_params": 40370176,
+  "total_params": 7655986688,
+  "trainable_percent": 0.5273020662807087,
+  "train_minutes": 17.012711596488952,
+  "peak_train_gpu_memory_gb": 14.712430953979492,
+  "final_train_loss": 0.22722626495361328,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "base": {
+    "execution_accuracy": 0.6,
+    "valid_sql_rate": 0.942,
+    "exact_match": 0.26,
+    "eval_minutes": 2.965550061066945
+  },
+  "qlora": {
+    "execution_accuracy": 0.662,
+    "valid_sql_rate": 0.94,
+    "exact_match": 0.4,
+    "eval_minutes": 3.4640862226486204
+  }
+}
