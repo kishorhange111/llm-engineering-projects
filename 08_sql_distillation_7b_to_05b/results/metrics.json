@@ -1,0 +1,41 @@
+{
+  "teacher": "Qwen/Qwen2.5-7B-Instruct",
+  "student": "Qwen/Qwen2.5-0.5B-Instruct",
+  "test_questions": 500,
+  "teacher_labelling_minutes": 11.305224426587422,
+  "teacher_labels_executable": 0.8648333333333333,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "results": {
+    "teacher_7b_zero_shot": {
+      "execution_accuracy": 0.594,
+      "seconds": 48.013368129730225,
+      "tokens_per_second": 352.5893029261874
+    },
+    "student_0.5b_zero_shot": {
+      "execution_accuracy": 0.434,
+      "seconds": 31.842289686203003,
+      "tokens_per_second": 448.24037908883076
+    },
+    "student_distilled_teacher_sql": {
+      "execution_accuracy": 0.504,
+      "train_examples": 6000,
+      "train_minutes": 0.9139100829760234,
+      "seconds": 34.2808313369751,
+      "tokens_per_second": 441.4128657282216
+    },
+    "student_distilled_executable_only": {
+      "execution_accuracy": 0.522,
+      "train_examples": 5189,
+      "train_minutes": 0.7339016954104106,
+      "seconds": 33.26557493209839,
+      "tokens_per_second": 448.9025074865294
+    },
+    "student_trained_on_gold_sql": {
+      "execution_accuracy": 0.524,
+      "train_examples": 6000,
+      "train_minutes": 0.8354676286379497,
+      "seconds": 29.393290042877197,
+      "tokens_per_second": 448.129487402923
+    }
+  }
+}

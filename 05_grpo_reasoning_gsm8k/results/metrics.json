@@ -1,0 +1,19 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "steps": 307,
+  "questions_seen": 1228,
+  "group_size": 8,
+  "train_minutes": 72.08170143763225,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "test_questions": 500,
+  "before": {
+    "accuracy": 0.676,
+    "format_compliance": 0.55,
+    "eval_minutes": 4.068590199947357
+  },
+  "after": {
+    "accuracy": 0.676,
+    "format_compliance": 0.976,
+    "eval_minutes": 4.003912615776062
+  }
+}

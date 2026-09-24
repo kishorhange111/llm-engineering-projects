@@ -8,8 +8,13 @@ Hands-on projects on the core skills of building production LLM systems: **param
 | 02 | [QLoRA text-to-SQL](02_qlora_text_to_sql) | Qwen2.5-7B, 4-bit NF4 QLoRA, execution-based evaluation | execution accuracy **60.0 % → 66.2 %** in 17 min on one GPU, 0.53 % of parameters trained |
 | 03 | [Vision-language model for chart QA](03_vlm_chartqa_lora) | Qwen2-VL-2B, LoRA, ChartQA relaxed accuracy, error analysis | **76.2 % → 77.5 %** (within noise — strong zero-shot baseline; failures analysed) |
 | 04 | [Whisper for Marathi speech recognition](04_whisper_marathi_asr) | Whisper-small fine-tuning on 11.9 h of FLEURS Marathi, WER/CER | **CER 53.6 % → 14.7 %**, WER 121 % → 45 % in 22 min on one L4 |
+| 05 | [GRPO reinforcement learning for reasoning](05_grpo_reasoning_gsm8k) | DeepSeek-R1-style RL with verifiable rewards, TRL GRPOTrainer, GSM8K | format compliance **55 % → 98 %**; accuracy unchanged at 67.6 % — analysed |
+| 06 | [Function-calling agent model](06_function_calling_agent) | Qwen2.5-1.5B + LoRA, tool-call exact match, JSON validity, abstention | exact tool calls **16.7 % → 94.8 %**, valid JSON 62 % → **100 %** |
+| 08 | [Distilling 7B text-to-SQL into 0.5B](08_sql_distillation_7b_to_05b) | sequence-level KD, execution-filtered teacher labels, no human labels | student **43.4 % → 52.2 %** = as good as training on gold SQL (52.4 %) |
 
-*In progress (results will be added as runs finish): GRPO reinforcement learning for math reasoning (GSM8K) · function-calling agent · prompt-injection guardrail · 7B → 0.5B text-to-SQL distillation · LLM serving benchmark (vLLM, AWQ).*
+Related: [**mini-chatgpt**](https://github.com/kishorhange111/mini-chatgpt) — base LLM → SFT → DPO → benchmarks, matching Qwen's official instruct model on IFEval/ARC.
+
+*In progress: prompt-injection guardrail classifier · LLM serving benchmark (vLLM, AWQ 4-bit).*
 
 ## Principles
 - **Baseline first:** every fine-tuned model is compared with the same model zero-shot (or a classical method) on the same held-out data and prompt.

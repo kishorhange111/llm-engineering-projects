@@ -1,0 +1,106 @@
+{
+  "zero_shot": [
+    {
+      "user": "Can you please book a flight for me from New York to Los Angeles?",
+      "gold": "I'm sorry, but I'm unable to assist with booking flights. My current capabilities allow me to calculate the distance between two locations. However, I don't have the function to book flights or perform other external tasks.",
+      "pred": "I'm sorry, but I can't assist with that. My current capabilities only allow me to provide information and perform specific tasks based on the functions provided to me. I don't have the ability to book flights or make reservations."
+    },
+    {
+      "user": "Hi, I have a dress that I bought for $100. There's a 20% discount on it. Can you tell me how much I will have to pay after the discount?",
+      "gold": "Sure, let me calculate that for you.\nAI to=calculate_discount: {\"original_price\": 100, \"discount_percentage\": 20}",
+      "pred": "Sure, I can help with that. To calculate the discounted price, we need to use the `calculate_discount` function. Let's proceed.\n<functioncall>{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}</functioncall>"
+    },
+    {
+      "user": "How has technology impacted Starbucks' ability to achieve its business objectives, and what specific technological tools has the company utilized to enhance its operations, customer experience, and marketing efforts? In addition, what challenges has Starbucks faced in implementing these technologies",
+      "gold": "Additionally, Starbucks has also faced challenges in integrating these technological tools with its existing systems and processes. This has required significant investment in training and development for employees to ensure they are able to effectively use and leverage these tools. To address this ",
+      "pred": "<functioncall>{\"name\": \"provide_company_analysis\", \"arguments\": {\"company\": \"Starbucks\", \"focus\": \"technological impact\"}></functioncall>"
+    },
+    {
+      "user": "Can you tell me the current stock price of Apple?",
+      "gold": "<functioncall>{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}</functioncall>",
+      "pred": "I can help with that. Do you have the stock symbol for Apple?"
+    },
+    {
+      "user": "Identify the pattern and fill in the blank: 3, 6, 10, 15, 21, ____.",
+      "gold": "The pattern is adding consecutive numbers, starting from 1. \n3 + 1 = 4\n4 + 2 = 6\n6 + 3 = 9\n9 + 4 = 13\n13 + 5 = 18\n18 + 6 = 24\nTherefore, the missing number is 24.",
+      "pred": "The pattern in this sequence is that each number increases by an increment that increases by 1 each time:\n- The first difference (between 3 and 6) is 3.\n- The second difference (between 6 and 10) is 4.\n- The third difference (between 10 and 15) is 5.\nFollowing this pattern, the next difference shoul"
+    },
+    {
+      "user": "You are a detective trying to figure out which of the 20 suspects is the culprit. Each suspect has a unique weight, but one of them has a weight that is different from the others. Using a balance scale, what is the minimum number of weighings you need to determine which suspect is the culprit? \nHere",
+      "gold": "Yes, I can help you crack the case! \nThis is a classic problem in logic and reasoning known as the \"weighing puzzle\". The minimum number of weighings required to find the unique weight is 4. Here's how you can solve it using the given code:\n1. Divide the 20 suspects into three groups of 7, 7, and 6.",
+      "pred": "To solve this problem, we can use the divide-and-conquer strategy. We will split the suspects into two groups and compare their weights using the balance scale. If the scales balance, then the culprit must be in the other group. If the scales do not balance, then the culprit must be in the heavier o"
+    },
+    {
+      "user": "How can you enhance the functionality of AI-driven systems using Python? Besides the existing libraries like TensorFlow, Keras, and PyTorch, what are the other libraries and frameworks available to create AI-driven systems in Python? Additionally, provide an example of how machine learning algorithm",
+      "gold": "Python has a vast collection of libraries and frameworks that can be used to enhance the functionality of AI-driven systems. Some of the libraries and frameworks that can be used to create AI-driven systems in Python are:\n1. Scikit-learn: It is a popular machine learning library that provides a wide",
+      "pred": "To enhance the functionality of AI-driven systems using Python, besides the existing libraries like TensorFlow, Keras, and PyTorch, there are several other libraries and frameworks available:\n\n1. Scikit-learn: A popular library for machine learning tasks such as classification, regression, clusterin"
+    },
+    {
+      "user": "Hi, I need some help with my loan calculations.",
+      "gold": "Of course, I'd be happy to help. Could you please provide me with the principal amount, the annual interest rate, and the term of the loan in months?",
+      "pred": "Of course! I can help you calculate your monthly loan payment. Could you please provide me with the principal amount, the annual interest rate, and the term of the loan in months?"
+    },
+    {
+      "user": "I have a sentence in French that I need translated to English. The sentence is \"Je suis très heureux de vous rencontrer\".",
+      "gold": "<functioncall>{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}</functioncall>",
+      "pred": "Here is the translation: \"I am very happy to meet you.\""
+    },
+    {
+      "user": "Hi, I need to calculate the area of a square. The side length is 5.",
+      "gold": "<functioncall>{\"name\": \"calculate_square_area\", \"arguments\": {\"side_length\": 5}}</functioncall>",
+      "pred": "<functioncall>{\"name\": \"calculate_square_area\", \"arguments\": {\"side_length\": 5}}</functioncall>"
+    }
+  ],
+  "fine_tuned": [
+    {
+      "user": "Can you please book a flight for me from New York to Los Angeles?",
+      "gold": "I'm sorry, but I'm unable to assist with booking flights. My current capabilities allow me to calculate the distance between two locations. However, I don't have the function to book flights or perform other external tasks.",
+      "pred": "I'm sorry, but I don't have the capability to book flights as it's an external task and no function has been provided for that task. However, I can help calculate the distance between two locations. Would you like to know the distance between New York and Los Angeles?"
+    },
+    {
+      "user": "Hi, I have a dress that I bought for $100. There's a 20% discount on it. Can you tell me how much I will have to pay after the discount?",
+      "gold": "Sure, let me calculate that for you.\nAI to=calculate_discount: {\"original_price\": 100, \"discount_percentage\": 20}",
+      "pred": "<functioncall>{\"name\": \"calculate_discount\", \"arguments\": {\"original_price\": 100, \"discount_percentage\": 20}}</functioncall>"
+    },
+    {
+      "user": "How has technology impacted Starbucks' ability to achieve its business objectives, and what specific technological tools has the company utilized to enhance its operations, customer experience, and marketing efforts? In addition, what challenges has Starbucks faced in implementing these technologies",
+      "gold": "Additionally, Starbucks has also faced challenges in integrating these technological tools with its existing systems and processes. This has required significant investment in training and development for employees to ensure they are able to effectively use and leverage these tools. To address this ",
+      "pred": "In conclusion, technology has had a significant impact on Starbucks' ability to achieve its business objectives. By utilizing a range of technological tools, such as the mobile app, digital flywheel platform, and AI-powered supply chain management systems, Starbucks has been able to improve its oper"
+    },
+    {
+      "user": "Can you tell me the current stock price of Apple?",
+      "gold": "<functioncall>{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}</functioncall>",
+      "pred": "<functioncall>{\"name\": \"get_stock_price\", \"arguments\": {\"symbol\": \"AAPL\"}}</functioncall>"
+    },
+    {
+      "user": "Identify the pattern and fill in the blank: 3, 6, 10, 15, 21, ____.",
+      "gold": "The pattern is adding consecutive numbers, starting from 1. \n3 + 1 = 4\n4 + 2 = 6\n6 + 3 = 9\n9 + 4 = 13\n13 + 5 = 18\n18 + 6 = 24\nTherefore, the missing number is 24.",
+      "pred": "The pattern is that each number is obtained by adding consecutive integers starting from 1. \nSo, the next number would be:\n21 + 7 = 28\nTherefore, the missing number is 28."
+    },
+    {
+      "user": "You are a detective trying to figure out which of the 20 suspects is the culprit. Each suspect has a unique weight, but one of them has a weight that is different from the others. Using a balance scale, what is the minimum number of weighings you need to determine which suspect is the culprit? \nHere",
+      "gold": "Yes, I can help you crack the case! \nThis is a classic problem in logic and reasoning known as the \"weighing puzzle\". The minimum number of weighings required to find the unique weight is 4. Here's how you can solve it using the given code:\n1. Divide the 20 suspects into three groups of 7, 7, and 6.",
+      "pred": "To determine which suspect is the culprit using the minimum number of weighings, we can use the following approach:\n1. Divide the suspects into two groups of 10 and weigh them against each other on the balance scale.\n2. If the scales balance, then the culprit must be in the group that was not weighe"
+    },
+    {
+      "user": "How can you enhance the functionality of AI-driven systems using Python? Besides the existing libraries like TensorFlow, Keras, and PyTorch, what are the other libraries and frameworks available to create AI-driven systems in Python? Additionally, provide an example of how machine learning algorithm",
+      "gold": "Python has a vast collection of libraries and frameworks that can be used to enhance the functionality of AI-driven systems. Some of the libraries and frameworks that can be used to create AI-driven systems in Python are:\n1. Scikit-learn: It is a popular machine learning library that provides a wide",
+      "pred": "There are several other libraries and frameworks available for building AI-driven systems in Python, including:\n1. Scikit-learn: A popular library for machine learning tasks such as classification, regression, clustering, and dimensionality reduction.\n2. Hugging Face Transformers: An open-source lib"
+    },
+    {
+      "user": "Hi, I need some help with my loan calculations.",
+      "gold": "Of course, I'd be happy to help. Could you please provide me with the principal amount, the annual interest rate, and the term of the loan in months?",
+      "pred": "Of course! I can help you calculate your monthly loan payment. Could you please provide me with the principal amount, the annual interest rate, and the term of the loan in months?"
+    },
+    {
+      "user": "I have a sentence in French that I need translated to English. The sentence is \"Je suis très heureux de vous rencontrer\".",
+      "gold": "<functioncall>{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}</functioncall>",
+      "pred": "<functioncall>{\"name\": \"translate_text\", \"arguments\": {\"text\": \"Je suis très heureux de vous rencontrer\", \"source_language\": \"French\", \"target_language\": \"English\"}}</functioncall>"
+    },
+    {
+      "user": "Hi, I need to calculate the area of a square. The side length is 5.",
+      "gold": "<functioncall>{\"name\": \"calculate_square_area\", \"arguments\": {\"side_length\": 5}}</functioncall>",
+      "pred": "<functioncall>{\"name\": \"calculate_square_area\", \"arguments\": {\"side_length\": 5}}</functioncall>"
+    }
+  ]
+}
