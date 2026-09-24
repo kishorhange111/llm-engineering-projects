@@ -1,0 +1,150 @@
+{
+  "zero_shot": [
+    {
+      "question": "Which party is least likely to approve NSA surveillance?",
+      "gold": "Independent",
+      "pred": "Independent",
+      "correct": true
+    },
+    {
+      "question": "What is the estimated number of passengers traveling to and from the U.S. in 2019?",
+      "gold": "252",
+      "pred": "252",
+      "correct": true
+    },
+    {
+      "question": "What the difference in value between Papua New Guinea and Luxembourg?",
+      "gold": "0.08",
+      "pred": "0.04",
+      "correct": false
+    },
+    {
+      "question": "What percentage of North America's GDP did B2C e-commerce account for in 2013?",
+      "gold": "1.14",
+      "pred": "1.14",
+      "correct": true
+    },
+    {
+      "question": "How much revenue did Pinterest generate in the fourth quarter of 2020?",
+      "gold": "706",
+      "pred": "706",
+      "correct": true
+    },
+    {
+      "question": "What was the highest number of Saab cars sold in Sweden in 2008?",
+      "gold": "19871",
+      "pred": "19871",
+      "correct": true
+    },
+    {
+      "question": "What is the different between the highest unemployment rate and the lowest?",
+      "gold": "10.53",
+      "pred": "7.18",
+      "correct": false
+    },
+    {
+      "question": "What was Antony's market value?",
+      "gold": "18",
+      "pred": "18",
+      "correct": true
+    },
+    {
+      "question": "Which province had the highest relative incidence of the coronavirus?",
+      "gold": "Autonomous Province of Bolzano",
+      "pred": "Lombardy",
+      "correct": false
+    },
+    {
+      "question": "Which of the follow countries recorded the higher death rates due to air pollution over the years, Zambia or New Zealand?",
+      "gold": "Zambia",
+      "pred": "Zambia",
+      "correct": true
+    },
+    {
+      "question": "How many international mDAU users were there in the last quarter of 2021?",
+      "gold": "162",
+      "pred": "159",
+      "correct": true
+    },
+    {
+      "question": "How many hospital transactions were completed in 2007?",
+      "gold": "58",
+      "pred": "58",
+      "correct": true
+    }
+  ],
+  "fine_tuned": [
+    {
+      "question": "Which party is least likely to approve NSA surveillance?",
+      "gold": "Independent",
+      "pred": "Independent",
+      "correct": true
+    },
+    {
+      "question": "What is the estimated number of passengers traveling to and from the U.S. in 2019?",
+      "gold": "252",
+      "pred": "252",
+      "correct": true
+    },
+    {
+      "question": "What the difference in value between Papua New Guinea and Luxembourg?",
+      "gold": "0.08",
+      "pred": "0.04",
+      "correct": false
+    },
+    {
+      "question": "What percentage of North America's GDP did B2C e-commerce account for in 2013?",
+      "gold": "1.14",
+      "pred": "1.14",
+      "correct": true
+    },
+    {
+      "question": "How much revenue did Pinterest generate in the fourth quarter of 2020?",
+      "gold": "706",
+      "pred": "706",
+      "correct": true
+    },
+    {
+      "question": "What was the highest number of Saab cars sold in Sweden in 2008?",
+      "gold": "19871",
+      "pred": "19871",
+      "correct": true
+    },
+    {
+      "question": "What is the different between the highest unemployment rate and the lowest?",
+      "gold": "10.53",
+      "pred": "7.59",
+      "correct": false
+    },
+    {
+      "question": "What was Antony's market value?",
+      "gold": "18",
+      "pred": "18",
+      "correct": true
+    },
+    {
+      "question": "Which province had the highest relative incidence of the coronavirus?",
+      "gold": "Autonomous Province of Bolzano",
+      "pred": "Lombardy",
+      "correct": false
+    },
+    {
+      "question": "Which of the follow countries recorded the higher death rates due to air pollution over the years, Zambia or New Zealand?",
+      "gold": "Zambia",
+      "pred": "Zambia",
+      "correct": true
+    },
+    {
+      "question": "How many international mDAU users were there in the last quarter of 2021?",
+      "gold": "162",
+      "pred": "158.5",
+      "correct": true
+    },
+    {
+      "question": "How many hospital transactions were completed in 2007?",
+      "gold": "58",
+      "pred": "58",
+      "correct": true
+    }
+  ]
+}

@@ -5,8 +5,9 @@ Hands-on projects on the core skills of building production LLM systems: **param
 | # | Project | Techniques | Result |
 |---|---|---|---|
 | 02 | [QLoRA text-to-SQL](02_qlora_text_to_sql) | Qwen2.5-7B, 4-bit NF4 QLoRA, execution-based evaluation | execution accuracy **60.0 % → 66.2 %** in 17 min on one GPU, 0.53 % of parameters trained |
+| 03 | [Vision-language model for chart QA](03_vlm_chartqa_lora) | Qwen2-VL-2B, LoRA, ChartQA relaxed accuracy, error analysis | **76.2 % → 77.5 %** (within noise — strong zero-shot baseline; failures analysed) |
 
-*In progress (results will be added as runs finish): RAG retriever fine-tuning with BM25 / dense / reranker comparison (FiQA) · Qwen2-VL-2B LoRA for chart question answering (ChartQA) · Whisper fine-tuning for Marathi speech recognition (FLEURS).*
+*In progress (results will be added as runs finish): RAG retriever fine-tuning with BM25 / dense / reranker comparison (FiQA) · Whisper fine-tuning for Marathi speech recognition (FLEURS).*
 
 ## Principles
 - **Baseline first:** every fine-tuned model is compared with the same model zero-shot (or a classical method) on the same held-out data and prompt.

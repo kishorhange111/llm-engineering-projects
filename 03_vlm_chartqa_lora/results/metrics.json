@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen2-VL-2B-Instruct",
+  "train_examples": 8000,
+  "test_examples": 600,
+  "trainable_params": 18464768,
+  "total_params": 2227450368,
+  "trainable_percent": 0.8289642842448286,
+  "train_minutes": 24.686655525366465,
+  "peak_gpu_memory_gb": 14.168712139129639,
+  "final_train_loss": 0.27837007427215577,
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "zero_shot": {
+    "relaxed_accuracy": 0.7616666666666667,
+    "eval_minutes": 0.8998673280080159
+  },
+  "fine_tuned": {
+    "relaxed_accuracy": 0.775,
+    "eval_minutes": 1.2072364489237468
+  }
+}
