@@ -1,0 +1,20 @@
+{
+  "model": "openai/whisper-small",
+  "train_utterances": 3269,
+  "train_hours": 11.948666666666666,
+  "test_utterances": 1015,
+  "epochs": 5.0,
+  "train_minutes": 22.41110028028488,
+  "final_train_loss": 0.1795274571674626,
+  "gpu": "NVIDIA L4",
+  "zero_shot": {
+    "wer": 1.2113436519771688,
+    "cer": 0.5360112469364127,
+    "minutes": 3.802576649188995
+  },
+  "fine_tuned": {
+    "wer": 0.4531804391422842,
+    "cer": 0.14746568030432886,
+    "minutes": 4.333507851759593
+  }
+}

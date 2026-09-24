@@ -7,8 +7,9 @@ Hands-on projects on the core skills of building production LLM systems: **param
 | 01 | [RAG retrieval, measured](01_rag_retriever_finetuning) | BM25, bge embeddings + FAISS, contrastive fine-tuning, cross-encoder reranking, nDCG/Recall/MRR | dense **0.403 nDCG@10 vs 0.217 BM25**; fine-tuning +2.4 pts Recall@100; reranker *hurt* — measured, not assumed |
 | 02 | [QLoRA text-to-SQL](02_qlora_text_to_sql) | Qwen2.5-7B, 4-bit NF4 QLoRA, execution-based evaluation | execution accuracy **60.0 % → 66.2 %** in 17 min on one GPU, 0.53 % of parameters trained |
 | 03 | [Vision-language model for chart QA](03_vlm_chartqa_lora) | Qwen2-VL-2B, LoRA, ChartQA relaxed accuracy, error analysis | **76.2 % → 77.5 %** (within noise — strong zero-shot baseline; failures analysed) |
+| 04 | [Whisper for Marathi speech recognition](04_whisper_marathi_asr) | Whisper-small fine-tuning on 11.9 h of FLEURS Marathi, WER/CER | **CER 53.6 % → 14.7 %**, WER 121 % → 45 % in 22 min on one L4 |
 
-*In progress (results will be added as runs finish): Whisper fine-tuning for Marathi speech recognition (FLEURS) · GRPO reinforcement learning for math reasoning (GSM8K) · function-calling agent fine-tuning.*
+*In progress (results will be added as runs finish): GRPO reinforcement learning for math reasoning (GSM8K) · function-calling agent · prompt-injection guardrail · 7B → 0.5B text-to-SQL distillation · LLM serving benchmark (vLLM, AWQ).*
 
 ## Principles
 - **Baseline first:** every fine-tuned model is compared with the same model zero-shot (or a classical method) on the same held-out data and prompt.
