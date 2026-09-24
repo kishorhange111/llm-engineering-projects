@@ -43,7 +43,7 @@ More in [`results/samples.json`](results/samples.json); raw metrics in [`results
 ## Run
 ```bash
 pip install torch transformers datasets peft bitsandbytes accelerate
-python 02_qlora_text_to_sql/train.py                                   # 7B, ~25 min incl. evaluation on an A100
-MODEL=Qwen/Qwen2.5-3B-Instruct python 02_qlora_text_to_sql/train.py    # smaller GPUs
-QUICK=1 python 02_qlora_text_to_sql/train.py                           # smoke test
+python fine-tuning/qlora-text-to-sql/train.py                                   # 7B, ~25 min incl. evaluation on an A100
+MODEL=Qwen/Qwen2.5-3B-Instruct python fine-tuning/qlora-text-to-sql/train.py    # smaller GPUs
+QUICK=1 python fine-tuning/qlora-text-to-sql/train.py                           # smoke test
 ```

@@ -5,13 +5,3 @@ __pycache__/
 results_quick/
 adapter/
 checkpoints/
-# local-only helper scripts
-ops/status_all.ps1
-ops/debug_*
-ops/probe_*
-ops/gen1_*
-ops/qlora_*
-ops/a100_plan.py
-ops/run_bg.py
-ops/run_qlora.py
-ops/smoke_gen1.py

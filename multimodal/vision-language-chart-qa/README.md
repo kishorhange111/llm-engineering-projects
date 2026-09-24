@@ -47,6 +47,6 @@ More in [`results/samples.json`](results/samples.json); metrics in [`results/met
 ## Run
 ```bash
 pip install torch transformers datasets peft qwen-vl-utils
-python 03_vlm_chartqa_lora/train.py        # ~30 min incl. evaluation on an A100
-QUICK=1 python 03_vlm_chartqa_lora/train.py
+python multimodal/vision-language-chart-qa/train.py        # ~30 min incl. evaluation on an A100
+QUICK=1 python multimodal/vision-language-chart-qa/train.py
 ```

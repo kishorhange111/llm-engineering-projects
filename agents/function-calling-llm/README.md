@@ -30,5 +30,5 @@ Agent frameworks (LangChain / LangGraph / CrewAI tools, OpenAI-style function ca
 ## Run
 ```bash
 pip install torch transformers datasets peft
-python 06_function_calling_agent/train.py        # ~65 min on an L4 incl. evaluations
+python agents/function-calling-llm/train.py        # ~65 min on an L4 incl. evaluations
 ```

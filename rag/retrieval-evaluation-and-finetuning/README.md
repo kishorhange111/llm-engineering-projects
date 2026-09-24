@@ -34,6 +34,6 @@ Latency: FAISS search **0.11 ms/query**; cross-encoder reranking of 50 candidate
 ## Run
 ```bash
 pip install torch sentence-transformers datasets faiss-cpu rank-bm25
-python 01_rag_retriever_finetuning/train.py          # ~15 min on an A100 (encoding 57k passages twice + reranking)
-QUICK=1 python 01_rag_retriever_finetuning/train.py  # small smoke test
+python rag/retrieval-evaluation-and-finetuning/train.py          # ~15 min on an A100 (encoding 57k passages twice + reranking)
+QUICK=1 python rag/retrieval-evaluation-and-finetuning/train.py  # small smoke test
 ```

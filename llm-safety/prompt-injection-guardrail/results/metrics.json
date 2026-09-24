@@ -1,0 +1,89 @@
+{
+  "train_examples": 8236,
+  "train_minutes": 6.908010005950928,
+  "gpu": "NVIDIA L4",
+  "latency_ms_batch1": {
+    "modernbert_finetuned": 20.468554496765137,
+    "protectai_guardrail": 26.938724517822266
+  },
+  "results": {
+    "tfidf_logreg": {
+      "in_distribution_test": {
+        "precision": 1.0,
+        "recall": 0.9723076923076923,
+        "f1": 0.9859594383775351,
+        "roc_auc": 0.9993715220949264,
+        "false_positive_rate": 0.0,
+        "n": 2060
+      },
+      "deepset": {
+        "precision": 0.9565217391304348,
+        "recall": 0.08365019011406843,
+        "f1": 0.15384615384615385,
+        "roc_auc": 0.7242297759608145,
+        "false_positive_rate": 0.002506265664160401,
+        "n": 662
+      },
+      "jailbreak_classification": {
+        "precision": 0.9809825673534073,
+        "recall": 0.9294294294294294,
+        "f1": 0.9545104086353122,
+        "roc_auc": 0.9882413663663664,
+        "false_positive_rate": 0.01875,
+        "n": 1306
+      }
+    },
+    "modernbert_finetuned": {
+      "in_distribution_test": {
+        "precision": 1.0,
+        "recall": 0.9938461538461538,
+        "f1": 0.9969135802469136,
+        "roc_auc": 0.9992689579923622,
+        "false_positive_rate": 0.0,
+        "n": 2060
+      },
+      "deepset": {
+        "precision": 0.9473684210526315,
+        "recall": 0.13688212927756654,
+        "f1": 0.23920265780730898,
+        "roc_auc": 0.6862498451451824,
+        "false_positive_rate": 0.005012531328320802,
+        "n": 662
+      },
+      "jailbreak_classification": {
+        "precision": 0.8343868520859671,
+        "recall": 0.990990990990991,
+        "f1": 0.905971173644475,
+        "roc_auc": 0.9893287819069068,
+        "false_positive_rate": 0.2046875,
+        "n": 1306
+      }
+    },
+    "protectai_guardrail_zero_shot": {
+      "in_distribution_test": {
+        "precision": 0.9963302752293578,
+        "recall": 0.8353846153846154,
+        "f1": 0.9087866108786611,
+        "roc_auc": 0.9920687397708675,
+        "false_positive_rate": 0.0014184397163120568,
+        "n": 2060
+      },
+      "deepset": {
+        "precision": 0.9646017699115044,
+        "recall": 0.4144486692015209,
+        "f1": 0.5797872340425532,
+        "roc_auc": 0.8817862145858943,
+        "false_positive_rate": 0.010025062656641603,
+        "n": 662
+      },
+      "jailbreak_classification": {
+        "precision": 0.992633517495396,
+        "recall": 0.8093093093093093,
+        "f1": 0.891645988420182,
+        "roc_auc": 0.9830306869369368,
+        "false_positive_rate": 0.00625,
+        "n": 1306
+      }
+    }
+  }
+}

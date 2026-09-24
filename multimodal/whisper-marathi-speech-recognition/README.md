@@ -45,6 +45,6 @@ More examples in [`results/samples.json`](results/samples.json).
 ## Run
 ```bash
 pip install torch transformers datasets jiwer soundfile librosa
-python 04_whisper_marathi_asr/train.py      # ~35 min on an L4 incl. two full test-set evaluations
+python multimodal/whisper-marathi-speech-recognition/train.py      # ~35 min on an L4 incl. two full test-set evaluations
 ```
 Data: FLEURS (Conneau et al., 2022), CC BY 4.0.

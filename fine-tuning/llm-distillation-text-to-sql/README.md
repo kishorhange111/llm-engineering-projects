@@ -2,7 +2,7 @@
 
 Production teams cut LLM cost by using a large model **once** as a teacher and deploying a small student. How close does a 15× smaller model get when it learns only from the teacher's outputs — and can we clean those outputs automatically?
 
-## Setup (same data and execution-based metric as [project 02](../02_qlora_text_to_sql))
+## Setup (same data and execution-based metric as [project 02](../../fine-tuning/qlora-text-to-sql))
 | | |
 |---|---|
 | Teacher | **Qwen2.5-7B-Instruct**, zero-shot — writes SQL for 6,000 training questions (11 min on an A100) |
@@ -28,10 +28,10 @@ Sequence-level knowledge distillation (Kim & Rush, 2016): the student imitates t
 ## Discussion points
 - **Why filtered teacher data ≈ gold data:** the student is capacity-limited, not label-limited; teacher outputs that run are "good enough" labels, and the teacher's style is consistent (easier to imitate than heterogeneous human SQL).
 - **Beyond this:** execution-*correctness* filtering (compare against a reference answer or a self-consistency vote), sampling several teacher outputs per question, and token-level KD with teacher logits (needs white-box access).
-- **Throughput note:** with plain Hugging Face `generate()` the student generated only ~1.3× faster than the teacher (448 vs. 353 tok/s) — small models are bottlenecked by Python/launch overhead, not FLOPs. A serving engine changes that picture — see [project 09](../09_llm_serving_benchmark).
+- **Throughput note:** with plain Hugging Face `generate()` the student generated only ~1.3× faster than the teacher (448 vs. 353 tok/s) — small models are bottlenecked by Python/launch overhead, not FLOPs. A serving engine with continuous batching (e.g. vLLM) is needed to turn the 15× smaller model into a proportional throughput and cost win.
 
 ## Run
 ```bash
 pip install torch transformers datasets
-python 08_sql_distillation_7b_to_05b/train.py     # ~45 min on an A100
+python fine-tuning/llm-distillation-text-to-sql/train.py     # ~45 min on an A100
 ```

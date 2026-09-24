@@ -29,5 +29,5 @@ For every question the model samples a **group of 8 answers**. Each gets a rule-
 ## Run
 ```bash
 pip install torch transformers datasets trl
-python 05_grpo_reasoning_gsm8k/train.py      # ~80 min on an A100 (time-budgeted)
+python reinforcement-learning/grpo-math-reasoning/train.py      # ~80 min on an A100 (time-budgeted)
 ```
